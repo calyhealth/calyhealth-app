@@ -15,6 +15,12 @@ export default function Home() {
 
   return (
     <>
+      <style>{`
+        @media (max-width: 900px) {
+          .wellness-grid { grid-template-columns: 1fr !important; }
+          .tips-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
       {/* HERO */}
       <section style={{
         background: 'var(--teal-dark)', minHeight: '92vh',
@@ -184,26 +190,52 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
+      {/* WELLNESS PROGRAM */}
       <section style={{ padding: '6rem 5%', background: 'var(--cream)' }}>
-        <div className="fade-up" style={{ marginBottom: '3.5rem' }}>
-          <SectionLabel>Patient stories</SectionLabel>
-          <h2 style={sectionTitle}>Real people. Real results.</h2>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '2rem', marginBottom: '3.5rem' }} className="fade-up">
+          <div>
+            <SectionLabel>Your wellness program</SectionLabel>
+            <h2 style={sectionTitle}>More than medication.<br />A complete lifestyle system.</h2>
+            <p style={{ ...sectionSubtitle, marginTop: '0.5rem', maxWidth: 520 }}>
+              CalyHealth supports your journey with expert-guided movement, nutrition, and mindset content — alongside your physician-prescribed treatment.
+            </p>
+          </div>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '1.5rem' }} className="stories-grid">
-          {testimonials.map(t => (
-            <div key={t.name} className="fade-up" style={{ background: 'var(--white)', border: '1px solid var(--border)', padding: '2rem 1.75rem' }}>
-              <span style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '4rem', lineHeight: 0.6, color: 'var(--gold-faint)', marginBottom: '1.25rem', display: 'block' }}>&ldquo;</span>
-              <p style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '1.05rem', fontStyle: 'italic', color: 'var(--charcoal)', lineHeight: 1.7, marginBottom: '1.5rem' }}>{t.text}</p>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 12, borderTop: '1px solid var(--border)', paddingTop: '1.25rem' }}>
-                <div style={{ width: 40, height: 40, borderRadius: '50%', background: 'var(--teal-faint)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '1rem', fontWeight: 500, color: 'var(--teal-mid)', flexShrink: 0 }}>
-                  {t.initials}
-                </div>
-                <div>
-                  <div style={{ fontSize: '0.88rem', fontWeight: 500, color: 'var(--charcoal)' }}>{t.name}</div>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--muted)', fontWeight: 300 }}>{t.meta}</div>
-                  <div style={{ fontSize: '0.75rem', fontWeight: 500, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--teal-mid)' }}>{t.result}</div>
-                </div>
+
+        {/* 3-pillar cards */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '1.5rem', marginBottom: '3rem' }} className="wellness-grid">
+          {wellnessPillars.map(p => (
+            <div key={p.label} className="fade-up" style={{ background: 'var(--white)', border: '1px solid var(--border)', padding: '2rem 1.75rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <div style={{ width: 44, height: 44, borderRadius: 8, background: p.bg, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" dangerouslySetInnerHTML={{ __html: p.icon }} />
+              </div>
+              <div>
+                <p style={{ fontSize: '0.7rem', fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase', color: p.color, marginBottom: '0.35rem' }}>{p.label}</p>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '1.25rem', fontWeight: 600, color: 'var(--teal-mid)', lineHeight: 1.3, marginBottom: '0.5rem' }}>{p.title}</h3>
+                <p style={{ fontSize: '0.88rem', fontWeight: 300, color: 'var(--muted)', lineHeight: 1.7 }}>{p.desc}</p>
+              </div>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem', marginTop: 'auto', paddingTop: '1rem', borderTop: '1px solid var(--border)' }}>
+                {p.items.map(item => (
+                  <li key={item} style={{ fontSize: '0.82rem', color: 'var(--charcoal)', fontWeight: 300, display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <span style={{ width: 5, height: 5, borderRadius: '50%', background: p.color, flexShrink: 0, display: 'block' }} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* Tips strip */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '1px', background: 'var(--border)', border: '1px solid var(--border)' }} className="tips-grid">
+          {wellnessTips.map(tip => (
+            <div key={tip.heading} className="fade-up" style={{ background: 'var(--white)', padding: '1.75rem 1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+              <div style={{ width: 36, height: 36, borderRadius: 8, background: tip.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" dangerouslySetInnerHTML={{ __html: tip.icon }} />
+              </div>
+              <div>
+                <h4 style={{ fontSize: '0.88rem', fontWeight: 500, color: 'var(--charcoal)', marginBottom: '0.3rem' }}>{tip.heading}</h4>
+                <p style={{ fontSize: '0.82rem', fontWeight: 300, color: 'var(--muted)', lineHeight: 1.65 }}>{tip.body}</p>
               </div>
             </div>
           ))}
@@ -348,10 +380,55 @@ const stats = [
   { num: '94%', label: 'Patient satisfaction score based on 6-month program survey' },
 ];
 
-const testimonials = [
-  { initials: 'ML', name: 'Michelle L.', meta: 'Age 47 · Dallas, TX', result: 'Lost 38 lbs over 5 months', text: "I'd tried every diet for 15 years. Within 8 weeks on the CalyHealth program I lost 22 pounds — and I finally feel in control of my hunger for the first time." },
-  { initials: 'DR', name: 'David R.', meta: 'Age 52 · Chicago, IL', result: 'Lost 29 lbs over 4 months', text: 'As a busy dad of three I had no time for a complicated program. CalyHealth made it simple — my physician is always just a message away and the medication works.' },
-  { initials: 'AP', name: 'Angela P.', meta: 'Age 39 · Austin, TX', result: 'Lost 44 lbs over 6 months', text: "The physician review gave me so much confidence. I knew exactly what I was taking, why, and what to expect. This isn't a fad — it's real medicine done right." },
+const wellnessPillars = [
+  {
+    label: 'Movement',
+    color: '#2A7A4B',
+    bg: '#EBF6F0',
+    icon: '<circle cx="11" cy="4.5" r="2.5" stroke="#2A7A4B" stroke-width="1.3"/><path d="M11 7V13M7 9.5H15M8 19L11 13L14 19" stroke="#2A7A4B" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>',
+    title: 'Daily movement made simple',
+    desc: 'Short, consistent movement amplifies your GLP-1 results. No gym required — just accessible routines that fit around your life.',
+    items: ['10-min morning stretch for beginners', 'Low-impact walking plan (4-week)', 'Strength basics to preserve muscle mass'],
+  },
+  {
+    label: 'Nutrition',
+    color: '#C9A84C',
+    bg: '#FBF5E6',
+    icon: '<path d="M11 2C7.5 2 5 5.5 5 9C5 12.5 7.5 16 11 16C14.5 16 17 12.5 17 9C17 5.5 14.5 2 11 2Z" stroke="#C9A84C" stroke-width="1.3"/><path d="M8 9H14M11 6V12" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"/>',
+    title: 'Foods that work with your medication',
+    desc: 'Learn what to eat on GLP-1 therapy to maximise weight loss, minimise side effects, and keep energy levels stable throughout the day.',
+    items: ['What to eat on GLP-1 medication', 'High-protein meal ideas & timing', 'Managing nausea with food choices'],
+  },
+  {
+    label: 'Mindset',
+    color: '#4A6FA5',
+    bg: '#EEF2FA',
+    icon: '<circle cx="11" cy="11" r="8" stroke="#4A6FA5" stroke-width="1.3"/><path d="M7.5 11C7.5 9 9 7.5 11 7.5C13 7.5 14.5 9 14.5 11" stroke="#4A6FA5" stroke-width="1.3" stroke-linecap="round"/><circle cx="11" cy="11" r="1.5" fill="#4A6FA5"/>',
+    title: 'Build habits that last',
+    desc: 'Sustainable weight loss is as much about mindset as medication. Our guided content helps you break patterns and stay consistent long-term.',
+    items: ['5-min mindfulness for stress eating', 'Tracking progress — not perfection', 'Building an identity around health'],
+  },
+];
+
+const wellnessTips = [
+  {
+    heading: 'Start with 10 minutes daily',
+    body: 'Short, consistent movement beats sporadic intense workouts. Even a brisk walk boosts GLP-1 medication effectiveness.',
+    bg: '#EBF6F0',
+    icon: '<circle cx="8" cy="3" r="2" stroke="#2A7A4B" stroke-width="1.2"/><path d="M8 5V10M5 7H11M6 14L8 10L10 14" stroke="#2A7A4B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>',
+  },
+  {
+    heading: 'Prioritise protein at every meal',
+    body: 'High-protein foods preserve muscle mass during weight loss and work in synergy with appetite-suppressing GLP-1 medications.',
+    bg: '#FBF5E6',
+    icon: '<path d="M8 2C5.5 2 4 4.5 4 7C4 9.5 5.5 12 8 12C10.5 12 12 9.5 12 7C12 4.5 10.5 2 8 2Z" stroke="#C9A84C" stroke-width="1.2"/><path d="M6 7H10M8 5V9" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/>',
+  },
+  {
+    heading: 'Track progress, not perfection',
+    body: 'Weight fluctuates daily. Focus on weekly trends and non-scale victories — energy levels, sleep quality, clothing fit.',
+    bg: '#EEF2FA',
+    icon: '<circle cx="8" cy="8" r="6" stroke="#4A6FA5" stroke-width="1.2"/><path d="M5.5 8C5.5 6.6 6.6 5.5 8 5.5C9.4 5.5 10.5 6.6 10.5 8" stroke="#4A6FA5" stroke-width="1.2" stroke-linecap="round"/><circle cx="8" cy="8" r="1.2" fill="#4A6FA5"/>',
+  },
 ];
 
 const faqs = [
