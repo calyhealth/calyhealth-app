@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 
 export default function Nav() {
@@ -10,27 +11,20 @@ export default function Nav() {
       position: 'sticky', top: 0, zIndex: 100,
       background: 'var(--white)', borderBottom: '1px solid var(--border)',
       padding: '0 5%', display: 'flex', alignItems: 'center',
-      justifyContent: 'space-between', height: '68px',
+      justifyContent: 'space-between', height: '72px',
     }}>
-      <Link href="/" style={{
-        fontFamily: "'Cormorant Garamond', Georgia, serif",
-        fontSize: '1.55rem', fontWeight: 600,
-        color: 'var(--teal-mid)', letterSpacing: '-0.01em',
-        textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px',
-      }}>
-        <div style={{
-          width: 28, height: 28, background: 'var(--teal-mid)',
-          borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center',
-        }}>
-          <svg viewBox="0 0 14 14" fill="none" style={{ width: 14, height: 14 }}>
-            <path d="M7 1C7 1 3 4 3 8C3 10.2 4.8 12 7 12C9.2 12 11 10.2 11 8C11 4 7 1 7 1Z" fill="#C9A84C"/>
-            <path d="M7 5V11M5 8H9" stroke="white" strokeWidth="1.2" strokeLinecap="round"/>
-          </svg>
-        </div>
-        CalyHealth
+      <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+        <Image
+          src="/logo.png"
+          alt="CalyHealth"
+          width={56}
+          height={56}
+          style={{ objectFit: 'contain' }}
+          priority
+        />
       </Link>
 
-      {/* Desktop links — hidden on mobile via globals.css */}
+      {/* Desktop links — hidden on tablet/mobile via globals.css */}
       <ul className="nav-links-desktop" style={{
         display: 'flex', alignItems: 'center', gap: '2rem', listStyle: 'none',
         margin: 0, padding: 0,
@@ -69,7 +63,7 @@ export default function Nav() {
       {/* Mobile dropdown menu */}
       {menuOpen && (
         <div style={{
-          position: 'absolute', top: 68, left: 0, right: 0,
+          position: 'absolute', top: 72, left: 0, right: 0,
           background: 'var(--white)', borderBottom: '1px solid var(--border)',
           padding: '1rem 5%', display: 'flex', flexDirection: 'column', gap: '1rem',
           zIndex: 99,

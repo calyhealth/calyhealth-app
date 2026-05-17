@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -9,25 +10,20 @@ export default function Footer() {
         borderBottom: '1px solid rgba(255,255,255,0.08)', marginBottom: '2rem',
       }} className="footer-grid">
         <div>
-          <Link href="/" style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontSize: '1.55rem', fontWeight: 600, color: 'var(--white)',
-            letterSpacing: '-0.01em', textDecoration: 'none',
-            display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '1rem',
-          }}>
-            <div style={{
-              width: 28, height: 28, background: 'var(--teal-mid)',
-              borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center',
-            }}>
-              <svg viewBox="0 0 14 14" fill="none" style={{ width: 14, height: 14 }}>
-                <path d="M7 1C7 1 3 4 3 8C3 10.2 4.8 12 7 12C9.2 12 11 10.2 11 8C11 4 7 1 7 1Z" fill="#C9A84C"/>
-                <path d="M7 5V11M5 8H9" stroke="white" strokeWidth="1.2" strokeLinecap="round"/>
-              </svg>
-            </div>
-            CalyHealth
+          <Link href="/" style={{ display: 'inline-block', marginBottom: '1rem' }}>
+            <Image
+              src="/logo.png"
+              alt="CalyHealth"
+              width={80}
+              height={80}
+              style={{ objectFit: 'contain', borderRadius: '12px' }}
+            />
           </Link>
           <p style={{ fontSize: '0.83rem', fontWeight: 300, color: 'rgba(255,255,255,0.4)', lineHeight: 1.7, maxWidth: 260 }}>
-            Physician-prescribed wellness programs designed to help adults 30–55 achieve lasting, medically-supervised weight loss.
+            Physician-prescribed wellness programs designed to help adults achieve lasting, medically-supervised weight loss.
+          </p>
+          <p style={{ marginTop: '1.25rem', fontSize: '0.75rem', color: 'rgba(201,168,76,0.7)', fontWeight: 300, letterSpacing: '0.04em' }}>
+            PERSONALIZED CARE. REAL RESULTS.
           </p>
         </div>
 
@@ -53,17 +49,12 @@ export default function Footer() {
 
       <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '2rem', flexWrap: 'wrap' }}>
         <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.25)', fontWeight: 300 }}>
-          © 2025 CalyHealth, Inc. All rights reserved.
+          © 2026 CalyHealth, Inc. All rights reserved.
         </p>
         <p style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.2)', fontWeight: 300, maxWidth: 560, lineHeight: 1.65 }}>
           CalyHealth connects patients with licensed healthcare providers. Medications are prescribed at the sole discretion of a licensed physician after a full clinical review. These products are not intended to diagnose, treat, cure, or prevent any disease. Results may vary. Not available in all states.
         </p>
       </div>
-
-      <style>{`
-        @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 2rem !important; } }
-        @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr !important; } }
-      `}</style>
     </footer>
   );
 }

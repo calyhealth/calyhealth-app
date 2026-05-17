@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 252 64" width="252" height="64" role="img" aria-label="CalyHealth">
+  <defs>
+    <style>
+      .caly-serif  { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; }
+      .caly-sans   { font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <!-- C mark — white on dark backgrounds -->
+  <path d="M 45.5 14.7 A 22 22 0 1 0 45.5 49.3"
+        stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" fill="none"/>
+
+  <!-- Gold accent dots -->
+  <circle cx="45.5" cy="14.7" r="4.5" fill="#C9A84C"/>
+  <circle cx="45.5" cy="49.3" r="4.5" fill="#C9A84C"/>
+
+  <!-- Wordmark — white -->
+  <text y="43">
+    <tspan x="72"
+           class="caly-serif"
+           font-size="35"
+           font-weight="700"
+           fill="#FFFFFF">Caly</tspan><!--
+    --><tspan class="caly-sans"
+           font-size="29"
+           font-weight="300"
+           letter-spacing="2.5"
+           fill="#FFFFFF">Health</tspan>
+  </text>
+</svg>

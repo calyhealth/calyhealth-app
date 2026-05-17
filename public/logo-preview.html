@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CalyHealth Logo Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: #f0f0f0; padding: 40px; }
+    h2 { font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+         color: #7a7a7a; margin-bottom: 16px; }
+    .row { display: flex; align-items: center; gap: 48px; flex-wrap: wrap;
+           margin-bottom: 40px; }
+    .swatch {
+      display: flex; align-items: center; justify-content: center;
+      padding: 28px 40px; border-radius: 12px;
+    }
+    .on-white  { background: #ffffff; border: 1px solid #e0e0e0; }
+    .on-cream  { background: #F7F4EF; border: 1px solid #e8e0d4; }
+    .on-teal   { background: #0B3D3D; }
+    .on-teal-mid { background: #0D4A4A; }
+
+    .label { font-size: 10px; letter-spacing: .08em; text-transform: uppercase;
+             color: #7a7a7a; margin-top: 8px; text-align: center; }
+
+    .icon-row { display: flex; gap: 24px; align-items: flex-end; flex-wrap: wrap; margin-bottom: 40px; }
+    .icon-swatch { display: flex; flex-direction: column; align-items: center; }
+  </style>
+</head>
+<body>
+
+  <h2>Primary logo — on white</h2>
+  <div class="row" style="margin-bottom: 48px;">
+    <div>
+      <div class="swatch on-white">
+        <img src="logo.svg" height="64" alt="CalyHealth logo">
+      </div>
+      <p class="label">White background</p>
+    </div>
+    <div>
+      <div class="swatch on-cream">
+        <img src="logo.svg" height="64" alt="CalyHealth logo">
+      </div>
+      <p class="label">Cream background (#F7F4EF)</p>
+    </div>
+  </div>
+
+  <h2>White logo — on dark backgrounds</h2>
+  <div class="row" style="margin-bottom: 48px;">
+    <div>
+      <div class="swatch on-teal">
+        <img src="logo-white.svg" height="64" alt="CalyHealth logo white">
+      </div>
+      <p class="label">Teal dark (#0B3D3D)</p>
+    </div>
+    <div>
+      <div class="swatch on-teal-mid">
+        <img src="logo-white.svg" height="64" alt="CalyHealth logo white">
+      </div>
+      <p class="label">Teal mid (#0D4A4A)</p>
+    </div>
+  </div>
+
+  <h2>Icon mark — all sizes</h2>
+  <div class="icon-row">
+    <div class="icon-swatch">
+      <img src="logo-icon.svg" width="96" height="96" alt="icon">
+      <p class="label">96px</p>
+    </div>
+    <div class="icon-swatch">
+      <img src="logo-icon.svg" width="64" height="64" alt="icon">
+      <p class="label">64px</p>
+    </div>
+    <div class="icon-swatch">
+      <img src="logo-icon.svg" width="48" height="48" alt="icon">
+      <p class="label">48px</p>
+    </div>
+    <div class="icon-swatch">
+      <img src="logo-icon.svg" width="32" height="32" alt="icon">
+      <p class="label">32px</p>
+    </div>
+    <div class="icon-swatch">
+      <img src="logo-icon.svg" width="24" height="24" alt="icon">
+      <p class="label">24px</p>
+    </div>
+    <div class="icon-swatch">
+      <img src="logo-icon.svg" width="16" height="16" alt="icon">
+      <p class="label">16px favicon</p>
+    </div>
+  </div>
+
+  <h2>Scale test</h2>
+  <div style="display:flex; flex-direction:column; gap:20px; background:#fff; padding:24px; border-radius:12px; border:1px solid #e0e0e0; margin-bottom:40px;">
+    <img src="logo.svg" height="80">
+    <img src="logo.svg" height="56">
+    <img src="logo.svg" height="40">
+    <img src="logo.svg" height="28">
+  </div>
+
+</body>
+</html>

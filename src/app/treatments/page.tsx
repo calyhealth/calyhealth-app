@@ -20,7 +20,7 @@ const TREATMENTS = [
       'Cancel anytime',
     ],
     highlight: 'Best for first-time GLP-1 users',
-    icon: '<svg width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="24" stroke="#0D4A4A" stroke-width="1.5"/><path d="M18 26C18 21.6 21.6 18 26 18C30.4 18 34 21.6 34 26" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/><circle cx="26" cy="26" r="4" fill="#0D4A4A"/></svg>',
+    icon: '<svg width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="24" stroke="#B36A00" stroke-width="1.5"/><path d="M18 26C18 21.6 21.6 18 26 18C30.4 18 34 21.6 34 26" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/><circle cx="26" cy="26" r="4" fill="#B36A00"/></svg>',
   },
   {
     id: 'total',
@@ -60,7 +60,7 @@ const TREATMENTS = [
       'Free shipping, discreet packaging',
     ],
     highlight: 'Best as an add-on to GLP-1 therapy',
-    icon: '<svg width="52" height="52" viewBox="0 0 52 52" fill="none"><path d="M26 6L31 20H45L34 29L38 43L26 35L14 43L18 29L7 20H21L26 6Z" stroke="#0D4A4A" stroke-width="1.5" stroke-linejoin="round"/></svg>',
+    icon: '<svg width="52" height="52" viewBox="0 0 52 52" fill="none"><path d="M26 6L31 20H45L34 29L38 43L26 35L14 43L18 29L7 20H21L26 6Z" stroke="#B36A00" stroke-width="1.5" stroke-linejoin="round"/></svg>',
   },
 ];
 
