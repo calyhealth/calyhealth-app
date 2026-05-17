@@ -1,5 +1,35 @@
 -- Run this in your Supabase SQL editor to set up the schema
 
+-- ── Chat sessions ───────────────────────────────────────────────────────
+create table if not exists public.chat_sessions (
+  id         uuid primary key default gen_random_uuid(),
+  session_id text unique not null,
+  user_id    uuid references auth.users(id) on delete set null,
+  email      text,
+  escalated  boolean default false,
+  created_at timestamptz default now(),
+  updated_at timestamptz default now()
+);
+
+alter table public.chat_sessions enable row level security;
+
+create policy "Service role full access on chat_sessions"
+  on public.chat_sessions for all using (auth.role() = 'service_role');
+
+-- ── Chat messages ───────────────────────────────────────────────────────
+create table if not exists public.chat_messages (
+  id         uuid primary key default gen_random_uuid(),
+  session_id text not null references public.chat_sessions(session_id) on delete cascade,
+  role       text not null check (role in ('user', 'assistant')),
+  content    text not null,
+  created_at timestamptz default now()
+);
+
+alter table public.chat_messages enable row level security;
+
+create policy "Service role full access on chat_messages"
+  on public.chat_messages for all using (auth.role() = 'service_role');
+
 -- ── Waitlist (ineligible quiz visitors who want to be notified) ─────────
 create table if not exists public.waitlist (
   id         uuid primary key default gen_random_uuid(),

@@ -33,6 +33,7 @@ export default function Nav() {
         <li><Link href="/treatments" style={navLinkStyle}>Treatments</Link></li>
         <li><Link href="/#results" style={navLinkStyle}>Results</Link></li>
         <li><Link href="/#faq" style={navLinkStyle}>FAQ</Link></li>
+        <li><Link href="/support" style={navLinkStyle}>Support</Link></li>
         <li><Link href="/login" style={navLinkStyle}>Login</Link></li>
         <li>
           <Link href="/quiz" style={{

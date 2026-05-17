@@ -92,6 +92,9 @@ details summary::-webkit-details-marker { display: none; }
 /* Treatments grid */
 @media (max-width: 900px) { .treatments-grid { grid-template-columns: 1fr !important; } }
 
+/* Support grid */
+@media (max-width: 768px) { .support-grid { grid-template-columns: 1fr !important; } }
+
 /* Dashboard stats grid */
 @media (max-width: 768px) { .dash-stats { grid-template-columns: 1fr 1fr !important; } }
 
