@@ -61,6 +61,9 @@ create table if not exists public.clinical_intakes (
   status              text not null default 'submitted'
                         check (status in ('submitted','under_review','approved','denied','needs_info')),
   quiz_answers        jsonb,
+  eligibility_outcome text,
+  soft_flags          jsonb default '[]',
+  hipaa_consent_at    timestamptz,
   shipping_address    jsonb,
   prescription_id     text,
   prescription_data   jsonb,

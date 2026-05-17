@@ -90,7 +90,7 @@ export async function POST(req: Request) {
     const svc = createServiceClient();
     const { data: intake, error: dbError } = await svc
       .from('clinical_intakes')
-      .upsert({
+      .insert({
         user_id:             userId,
         plan_id:             resolvedPlanId,
         beluga_patient_id:   belugaResponse.patientId,
@@ -102,13 +102,14 @@ export async function POST(req: Request) {
         hipaa_consent_at:    hipaaConsentAt,
         shipping_address:    resolvedAddress,
         updated_at:          new Date().toISOString(),
-      }, { onConflict: 'user_id' })
+      })
       .select()
       .single();
 
     if (dbError) {
-      // Non-fatal — Beluga has the record
-      console.error('DB error saving intake:', dbError);
+      console.error('DB error saving intake:', JSON.stringify(dbError));
+      // Return error so it's visible in logs — not silent
+      return NextResponse.json({ error: 'Failed to save intake to database', details: dbError.message }, { status: 500 });
     }
 
     return NextResponse.json({
