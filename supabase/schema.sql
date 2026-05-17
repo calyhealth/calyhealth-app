@@ -1,5 +1,18 @@
 -- Run this in your Supabase SQL editor to set up the schema
 
+-- ── Waitlist (ineligible quiz visitors who want to be notified) ─────────
+create table if not exists public.waitlist (
+  id         uuid primary key default gen_random_uuid(),
+  email      text unique not null,
+  created_at timestamptz default now()
+);
+
+alter table public.waitlist enable row level security;
+
+-- Only service role can read/write (no user-facing RLS needed)
+create policy "Service role full access on waitlist"
+  on public.waitlist for all using (auth.role() = 'service_role');
+
 -- ── Profiles (extends auth.users) ──────────────────────────────────────
 create table if not exists public.profiles (
   id          uuid primary key references auth.users(id) on delete cascade,

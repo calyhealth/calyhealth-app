@@ -776,6 +776,22 @@ function ResultSteps() {
 function EmailCaptureSmall({ label }: { label: string }) {
   const [email, setEmail] = useState('');
   const [done, setDone] = useState(false);
+  const [saving, setSaving] = useState(false);
+
+  async function handleNotify() {
+    if (!email || !email.includes('@')) return;
+    setSaving(true);
+    try {
+      await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+    } catch { /* silent — still show success */ }
+    setSaving(false);
+    setDone(true);
+  }
+
   return done ? (
     <p style={{ fontSize: '0.82rem', color: 'var(--teal-mid)', fontWeight: 400 }}>✓ We&apos;ll be in touch.</p>
   ) : (
@@ -784,7 +800,9 @@ function EmailCaptureSmall({ label }: { label: string }) {
       <div style={{ display: 'flex', gap: '0.65rem' }}>
         <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="your@email.com"
           style={{ flex: 1, padding: '0.75rem 1rem', fontSize: '0.9rem', fontFamily: 'inherit', border: '1.5px solid var(--border)', borderRadius: 3, background: 'var(--cream)', color: 'var(--body-text)', outline: 'none' }} />
-        <button onClick={() => email && setDone(true)} style={{ ...btnContinueStyle, flexShrink: 0 }}>Notify me</button>
+        <button onClick={handleNotify} disabled={saving} style={{ ...btnContinueStyle, flexShrink: 0, opacity: saving ? 0.7 : 1 }}>
+          {saving ? '…' : 'Notify me'}
+        </button>
       </div>
     </div>
   );
