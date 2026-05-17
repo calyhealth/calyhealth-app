@@ -1,7 +1,7 @@
 'use client';
 import { useState, Suspense } from 'react';
 import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 
 const PLANS: Record<string, { name: string; price: number; desc: string; features: string[] }> = {
@@ -22,7 +22,6 @@ const PLANS: Record<string, { name: string; price: number; desc: string; feature
 type CheckoutStep = 'account' | 'shipping' | 'payment';
 
 function CheckoutForm() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const planId = searchParams.get('plan') || 'total';
   const plan = PLANS[planId] || PLANS.total;

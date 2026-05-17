@@ -3,7 +3,7 @@
 import { useReducer, useState, useCallback } from 'react';
 import { quizReducer, initialState } from '@/lib/quiz/state';
 import { computeEligibility, calcBMI, imperialToMetric, bmiCategory, bmiMarkerPercent } from '@/lib/quiz/eligibility';
-import type { QuizState, QuizAction, ScreenId, EligibilityResult } from '@/lib/quiz/types';
+import type { QuizState, QuizAction, ScreenId } from '@/lib/quiz/types';
 
 // ── Shared primitives ─────────────────────────────────────────────────────
 
@@ -869,7 +869,8 @@ function ContactScreen({ state, dispatch, goTo, goBack }: ScreenProps) {
   );
 }
 
-function ConfirmScreen({ state }: { state: QuizState }) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function ConfirmScreen(_props: { state: QuizState }) {
   return (
     <Card>
       <div style={{ textAlign: 'center' }}>

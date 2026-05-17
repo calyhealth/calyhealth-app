@@ -70,6 +70,7 @@ export default function DashboardClient({
   }, [supabase]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchStatus();
     fetchMessages();
     // Poll status every 30s while under review

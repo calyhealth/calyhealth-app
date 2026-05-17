@@ -377,63 +377,7 @@ const products = [
   },
 ];
 
-const stats = [
-  { num: '15%', label: 'Average body weight reduction in clinical GLP-1 trials over 68 weeks' },
-  { num: '87%', label: 'Of CalyHealth patients report measurable weight loss within 12 weeks' },
-  { num: '2.4×', label: 'Greater weight loss vs. lifestyle intervention alone in head-to-head trials' },
-  { num: '94%', label: 'Patient satisfaction score based on 6-month program survey' },
-];
 
-const wellnessPillars = [
-  {
-    label: 'Movement',
-    color: '#2A7A4B',
-    bg: '#EBF6F0',
-    icon: '<circle cx="11" cy="4.5" r="2.5" stroke="#2A7A4B" stroke-width="1.3"/><path d="M11 7V13M7 9.5H15M8 19L11 13L14 19" stroke="#2A7A4B" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>',
-    title: 'Daily movement made simple',
-    desc: 'Short, consistent movement amplifies your GLP-1 results. No gym required — just accessible routines that fit around your life.',
-    items: ['10-min morning stretch for beginners', 'Low-impact walking plan (4-week)', 'Strength basics to preserve muscle mass'],
-  },
-  {
-    label: 'Nutrition',
-    color: '#C9A84C',
-    bg: '#FBF5E6',
-    icon: '<path d="M11 2C7.5 2 5 5.5 5 9C5 12.5 7.5 16 11 16C14.5 16 17 12.5 17 9C17 5.5 14.5 2 11 2Z" stroke="#C9A84C" stroke-width="1.3"/><path d="M8 9H14M11 6V12" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"/>',
-    title: 'Foods that work with your medication',
-    desc: 'Learn what to eat on GLP-1 therapy to maximise weight loss, minimise side effects, and keep energy levels stable throughout the day.',
-    items: ['What to eat on GLP-1 medication', 'High-protein meal ideas & timing', 'Managing nausea with food choices'],
-  },
-  {
-    label: 'Mindset',
-    color: '#4A6FA5',
-    bg: '#EEF2FA',
-    icon: '<circle cx="11" cy="11" r="8" stroke="#4A6FA5" stroke-width="1.3"/><path d="M7.5 11C7.5 9 9 7.5 11 7.5C13 7.5 14.5 9 14.5 11" stroke="#4A6FA5" stroke-width="1.3" stroke-linecap="round"/><circle cx="11" cy="11" r="1.5" fill="#4A6FA5"/>',
-    title: 'Build habits that last',
-    desc: 'Sustainable weight loss is as much about mindset as medication. Our guided content helps you break patterns and stay consistent long-term.',
-    items: ['5-min mindfulness for stress eating', 'Tracking progress — not perfection', 'Building an identity around health'],
-  },
-];
-
-const wellnessTips = [
-  {
-    heading: 'Start with 10 minutes daily',
-    body: 'Short, consistent movement beats sporadic intense workouts. Even a brisk walk boosts GLP-1 medication effectiveness.',
-    bg: '#EBF6F0',
-    icon: '<circle cx="8" cy="3" r="2" stroke="#2A7A4B" stroke-width="1.2"/><path d="M8 5V10M5 7H11M6 14L8 10L10 14" stroke="#2A7A4B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>',
-  },
-  {
-    heading: 'Prioritise protein at every meal',
-    body: 'High-protein foods preserve muscle mass during weight loss and work in synergy with appetite-suppressing GLP-1 medications.',
-    bg: '#FBF5E6',
-    icon: '<path d="M8 2C5.5 2 4 4.5 4 7C4 9.5 5.5 12 8 12C10.5 12 12 9.5 12 7C12 4.5 10.5 2 8 2Z" stroke="#C9A84C" stroke-width="1.2"/><path d="M6 7H10M8 5V9" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/>',
-  },
-  {
-    heading: 'Track progress, not perfection',
-    body: 'Weight fluctuates daily. Focus on weekly trends and non-scale victories — energy levels, sleep quality, clothing fit.',
-    bg: '#EEF2FA',
-    icon: '<circle cx="8" cy="8" r="6" stroke="#4A6FA5" stroke-width="1.2"/><path d="M5.5 8C5.5 6.6 6.6 5.5 8 5.5C9.4 5.5 10.5 6.6 10.5 8" stroke="#4A6FA5" stroke-width="1.2" stroke-linecap="round"/><circle cx="8" cy="8" r="1.2" fill="#4A6FA5"/>',
-  },
-];
 
 const faqs = [
   { q: 'Am I a good candidate for GLP-1 medication?', a: "GLP-1 medications like semaglutide are generally appropriate for adults with a BMI of 27+ and at least one weight-related condition, or a BMI of 30+. Our free health quiz and physician review will assess your personal eligibility — there's no obligation and no cost to find out if you qualify." },
