@@ -3,9 +3,6 @@ import { createClient } from '@/lib/supabase/server';
 import type { BelugaWebhookPayload } from '@/lib/beluga/types';
 import Stripe from 'stripe';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: '2026-04-22.dahlia' as any });
-
 function verifyWebhookSignature(body: string, signature: string | null): boolean {
   const secret = process.env.BELUGA_WEBHOOK_SECRET;
   if (!secret) return true; // Skip verification in dev/mock mode
@@ -16,6 +13,9 @@ function verifyWebhookSignature(body: string, signature: string | null): boolean
 }
 
 export async function POST(req: Request) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: '2026-04-22.dahlia' as any });
+
   const body = await req.text();
   const signature = req.headers.get('x-beluga-signature');
 
